@@ -1,0 +1,27 @@
+.nav{
+    background-color: #1597E5;
+    padding-top: 3%; 
+    padding-bottom: 4%;
+}
+.nav-link{
+    color: white;
+    font-weight: bold;
+    font-size: 130%;
+}
+.nav-item{
+    padding-bottom: 8%; 
+}
+.col-4 img{ /*PARA MODIFICAR LA IMAGEN DE LA COLUMNA 2*/
+    max-width: 100%; /*TAMAÑO DE LA IMAGEN*/
+}
+.col-8{
+    text-align:justify;
+    text-justify:inter-word;
+    color: white;
+    font-weight: bold;
+}
+.btn{
+    font-weight: bold; 
+    font-size: 130%;
+    border-radius: 30px;
+}
