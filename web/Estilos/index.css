@@ -57,8 +57,8 @@
 }
 .botonesPagina button{
     background-color: #000D6B !important;
-    width: 178vh !important;
-    height: 15vh !important;
+    width: 100% !important;
+    height: 15% !important;
 }
 .textoInfo{
     text-align:justify;
@@ -67,7 +67,12 @@
 }
 .textoInfo .col{
     padding: 3px 10px;
-    border: PowderBlue 5px solid;
+    border: #000D6B 5px solid;
     border-radius: 20px;
     background-color: #cccccc;
+    color: black;
+}
+.textoInfo h3{
+    text-align: center;
+    font-weight: bold;
 }
