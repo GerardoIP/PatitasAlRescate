@@ -11,7 +11,7 @@
 .nav-item{
     padding-bottom: 8%; 
 }
-.col-4 img{ /*PARA MODIFICAR LA IMAGEN DE LA COLUMNA 2*/
+.col-4 img{ 
     max-width: 100%; /*TAMAÑO DE LA IMAGEN*/
 }
 .col-8{
@@ -20,8 +20,54 @@
     color: white;
     font-weight: bold;
 }
+.title{
+    text-align: center;
+    margin: 0 auto 40px;
+    position: relative;
+    line-height: 60px;
+    color: black;
+}
+/*  PONE UNA BARRITA DE COLOR EN EL TÍTULO  */
+.title::after{
+    content:'';
+    background: #000D6B;
+    width: 350px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translateX(-50%);
+}
+.btn{
+    background-color: #000D6B !important;
+    font-weight: bold !important;  
+    font-size: 130% !important;
+    border-radius: 60px !important;
+}
+
+.carousel-caption{
+    background-color: black;  
+    opacity: 0.7;
+}
 .btn{
     font-weight: bold; 
     font-size: 130%;
-    border-radius: 30px;
+    border-radius: 60px;
+}
+.botonesPagina button{
+    background-color: #000D6B !important;
+    width: 178vh !important;
+    height: 15vh !important;
+}
+.textoInfo{
+    text-align:justify;
+    text-justify:inter-word;
+    font-weight: bold;
+}
+.textoInfo .col{
+    padding: 3px 10px;
+    border: PowderBlue 5px solid;
+    border-radius: 20px;
+    background-color: #cccccc;
 }
