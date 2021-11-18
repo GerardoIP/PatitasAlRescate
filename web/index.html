@@ -12,42 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <style>
-            .title{
-                text-align: center;
-                margin: 0 auto 40px;
-                position: relative;
-                line-height: 60px;
-                color: black;
-            }
-            /*  PONE UNA BARRITA DE COLOR EN EL TÍTULO  */
-            .title::after{
-                content:'';
-                background: #000D6B;
-                width: 350px;
-                height: 5px;
-                border-radius: 5px;
-                position: absolute;
-                bottom: 0;
-                left:50%;
-                transform: translateX(-50%);
-            }
-            .btn{
-                background-color: #000D6B;
-                font-weight: bold; 
-                font-size: 130%;
-                border-radius: 60px;
-            }
-            .botonesPagina button{
-                background-color: #000D6B;
-                width: 178vh;
-                height: 15vh;
-            }
-            .carousel-caption{
-                background-color: black;  
-                opacity: 0.7;
-            }
-        </style>
+        <!-- IMPORTAR FIGURAS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
 
@@ -130,12 +96,34 @@
             </div>
         </div>
 
+        <!-- BOTONES  -->
         <div class="container botonesPagina">
             <button type="button" class="btn btn-primary">ALBERGUES</button><br>
             <button type="button" class="btn btn-primary my-5">TIPS Y CUIDADOS</button><br>
             <button type="button" class="btn btn-primary">BLOG</button>
         </div>
 
+        <!-- APARTADO CON TEXTO, ¿QUIENES SOMOS? Y ¿CÓMO PUEDO AYUDAR? -->
+        <div class="container textoInfo">
+            <div class="row">
+                <div class="col" style="margin-right: 10%;">
+                    <h3>¿Quiénes somos?</h3>
+                    <p>Somos un sitio web que pretende reunir todos los albergues que se encuentran dentro de la ciudad 
+                        de México con la finalidad de ayudar a que los animalitos encuentren un hogar. Además de poder 
+                        apoyar a los albergues a través de donaciones para que puedan seguir subsitiendo. Adicionalmente,
+                        podrás encontrar un blog en donde los usuarios pueden compartir sus experiencias sobre cuidado y
+                        adopción.</p>
+                </div>
+                <div class="col">
+                    <h3>¿Cómo puedo ayudar?</h3>
+                    <p>Puede entrar a la información de cada albergue para conocer los números de cuenta para realizar
+                        donaciones. De igual manera, puede llevar costales de alimento a los albergues.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+           
 
     </body>
 
