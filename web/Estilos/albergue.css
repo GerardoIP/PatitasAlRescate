@@ -1,12 +1,11 @@
 .containeralbergue{
     width: 100%;
     display: flex;
-    /*justify-content: center;*/
-    /*align-items: center;*/
+    align-items: top;
     height: 100vh;
 }
 
-.containeralbergue figure{
+.containeralbergue .figure{
     position: relative;
     height: 250px;
     width: 350px;
@@ -16,13 +15,23 @@
     cursor: pointer;
 }
 
-.containeralbergue figure img{
+div .galeria{
+    align-items: center;
+    /*box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);*/ 
+    margin:10px 30px;
+    float:left; 
+    width: 350px;
+}
+
+
+
+.containeralbergue .figure img{
     width: 100%;
     height: 100%;
     transition: all 500ms ease-out;
 }
 
-.containeralbergue figure .capa{
+.containeralbergue .figure .capa{
     position: absolute;
     top: 0;
     width: 100%;
@@ -34,21 +43,21 @@
     text-align: center;
 }
 
-.containeralbergue figure:hover > .capa{
+.containeralbergue .figure:hover > .capa{
     opacity: 1;
     visibility: visible;
 }
 
-.containeralbergue figure:hover > .capa h5{
+.containeralbergue .figure:hover > .capa h5{
     margin-top: 70px;
     margin-bottom: 15px;
 }
 
-.containeralbergue figure:hover > img{
+.containeralbergue .figure:hover > img{
     transform: scale(1.3);
 }
 
-.containeralbergue figure:hover .capa h5{
+.containeralbergue .figure:hover .capa h5{
     color:#fff;
     font-weight: 400;
     margin-bottom: 40px;
@@ -56,7 +65,7 @@
     margin-top: 60px;
 }
 
-.containeralbergue figure:hover .capa p{
+.containeralbergue .figure:hover .capa p{
     color:#fff;
     font-size: 15px;
     line-height: 1;
@@ -64,3 +73,16 @@
     max-width: 220px;
     margin: auto;
 }
+
+.containeralbergue .galeria .albergue-info {
+    padding: 25px 15px;
+  }
+
+
+.containeralbergue .galeria .albergue-info h4 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #111;
+  }
