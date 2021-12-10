@@ -1,0 +1,71 @@
+/*HEADER*/
+.nav{
+    background-color: #1597E5;
+    padding-top: 3%; 
+    padding-bottom: 4%;
+}
+.nav-link{
+    color: white;
+    font-weight: bold;
+    font-size: 130%;
+}
+.nav-item{
+    padding-bottom: 8%; 
+}
+.col-4 img{ 
+    max-width: 100%; /*TAMAÑO DE LA IMAGEN*/
+}
+/*TEXTO DENTRO DEL HEADER, A LADO DE LA IMAGEN*/
+.col-8{
+    text-align:justify;
+    text-justify:inter-word;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border: #000D6B 3px solid;
+    border-radius: 10px;
+}
+.col-8 p{
+    margin-top: 3%;
+}
+.col-4{
+    padding-top: 8%;
+    padding-left: 10%;
+}
+/*BOTONES DE CREAR CUENTA E INICIAR SESIÓN*/
+.btn{
+    background-color: #000D6B !important;
+    font-weight: bold !important;  
+    font-size: 130% !important;
+    border-radius: 60px !important;
+    font-weight: bold; 
+    font-size: 130%;
+    border-radius: 60px;
+    border-color: #000D6B !important;
+    transition: background 0.5s !important;
+}
+/*PARA QUE CAMBIE EL COLOR DEL BOTÓN CUANDO ESTÉ EL CURSOR ARRIBA, SE AGREGA TRANSITION ARRIBA PARA EL TIEMPO DE REACCIÓN*/
+.btn:hover{ 
+    background: black !important;
+}
+/*TITULO DE SECCIÓN*/
+.title{
+    text-align: center;
+    margin: 0 auto 40px;
+    position: relative;
+    line-height: 60px;
+    color: black;
+}
+/*  PONE UNA BARRITA DE COLOR EN EL TÍTULO  */
+.title::after{
+    content:'';
+    background: #000D6B;
+    width: 350px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translateX(-50%);
+}
+
