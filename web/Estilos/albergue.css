@@ -17,13 +17,12 @@
 
 div .galeria{
     align-items: center;
-    /*box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);*/ 
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    
     margin:10px 30px;
     float:left; 
     width: 350px;
 }
-
-
 
 .containeralbergue .figure img{
     width: 100%;
@@ -75,14 +74,14 @@ div .galeria{
 }
 
 .containeralbergue .galeria .albergue-info {
-    padding: 25px 15px;
+    padding: 30px 20px;
   }
 
 
 .containeralbergue .galeria .albergue-info h4 {
     font-weight: 700;
-    text-align: center;
-    margin-bottom: 5px;
+    text-align: center ;
+    margin-bottom: 3px;
     font-size: 18px;
     color: #111;
   }
