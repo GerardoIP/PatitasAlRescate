@@ -39,9 +39,9 @@
                 <a class="nav-link" href="#">COVID-19</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user-circle"></i> &nbsp;Bienvenido
-                </a>
+                <p id="nombreUsuario"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle"></i> &nbsp;
+                    </a></p>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Mí Cuenta</a>
                     <a class="dropdown-item" href="#">Cerrar Sesión</a>
@@ -56,15 +56,82 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <p>Nombre Completo:</p>
-                    <p>Dirección:</p>
-                    <p>Teléfono:</p>
-                    <p>Correo Electrónico:</p>
-                    <p>Contraseña:</p>
+                    <p id="nombreCompleto"></p>
+                    <p id="telefono"></p>
+                    <p id="correo"></p>
+                    <p id="contra"></p>
                 </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-primary align-items-center"><img src="Imagenes/editar.png"> Modificar Información</button><br><br>
-                    <button type="button" class="btn btn-primary"><img src="Imagenes/eliminar.png"> Eliminar Cuenta</button>
+                <div class="col-4" id="botones">
+                    <!--                    <button type="button" class="btn btn-primary">Modificar Información </button><br><br>
+                                        <button type="button" class="btn btn-primary">Eliminar Cuenta</button>-->
                 </div>
             </div>
         </div>
+
+        <!--Modal Información Cuenta-->
+        <div id="modalUsuarios" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-light" style="background-color: #094B81">
+                        <h5 class="modal-title" id="exampleModalLabel">Modificar Información</h5>
+                        <button type="button" class="btn-close" onclick="cerrarModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <input id="id" type="hidden"> <!-- ID que vamos a recibir de firebase -->
+                                <p>Nombre</p>
+                                <input type="text" name="nombreCompletoModal" id="nombreCompleto" class="form-control" style="width: 80%" required><br>
+                                <p>Primer Apellido</p>
+                                <input type="text" name="paModal" class="form-control" style="width: 80%" required><br>
+                                <p>Segundo Apellido</p>
+                                <input type="text" name="saModal" class="form-control" style="width: 80%"><br>
+                                <p>Teléfono</p>
+                                <input type="text" name="telModal" class="form-control" style="width: 80%" required><br>
+                            </div>
+                            <div class="col">
+                                <p>Correo Electrónico</p>
+                                <input type="text" name="correoModal" id="correoModal" class="form-control" style="width: 80%" required><br>
+                                <p>Contraseña</p>
+                                <input type="text" name="passModal" class="form-control" style="width: 80%" required><br>
+                                <button type="button" id="boton" class="btn btn-primary">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="b-example-divider" style="margin-top: 10%;"></div>
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+                </a>
+                <span class="text-muted">&copy; 2021 Patitas Al Rescate</span>
+            </div>
+
+            <ul class="col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-facebook-official fa-3x"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-twitter-square fa-3x"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-instagram fa-3x"></i></a></li>
+            </ul>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js"></script> 
+
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+        <script src="JS/cuentaUsuario.js"></script>
+
+    </body>    
+</html>
