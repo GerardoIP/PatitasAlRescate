@@ -50,15 +50,15 @@
             <h3 class="title my-5">Iniciar Sesión</h3>
             <div class="form-group">
                 <div class="row" style="margin-left: 30%;">
-                    <form action="" method="post">
+                    <form action="miCuentaUsuario.html" method="GET">
                         <div class="col">
                             <label for="Nombre">Correo Electrónico</label><br>
-                            <input type="email" id="email" class="form-control" style="width: 55%" required><br> 
+                            <input type="email" id="email" name="email" class="form-control" style="width: 55%" required><br> 
                             <label for="PApellido">Contraseña</label><br>
-                            <input type="password" id="pass" class="form-control" style="width: 55%" required><br>
+                            <input type="password" id="pass" name="pass" class="form-control" style="width: 55%" required><br>
                         </div>
                         <div class="nav-item" style="margin-left: 19%;">
-                            <button type="button" class="btn btn-primary" onclick="iniciaSesion();" style="font-size: 100% !important;">Iniciar Sesión </button><br><br>
+                            <button type="submit" class="btn btn-primary" onclick="iniciaSesion();" style="font-size: 100% !important;">Iniciar Sesión </button><br><br>
                             <label for="Nombre">¿No tienes cuenta?</label><br><br>
                             <button type="button" class="btn btn-primary" style="font-size: 100% !important;">Registrate</button>
                         </div>    
@@ -101,6 +101,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
 
-    <script src="JS/iniciaComunidad.js"></script>
+    <script src="JS/cuentaUsuario.js"></script>
 
 </html>

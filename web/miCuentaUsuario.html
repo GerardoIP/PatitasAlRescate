@@ -39,15 +39,26 @@
                 <a class="nav-link" href="#">COVID-19</a>
             </li>
             <li class="nav-item dropdown">
-                <p id="nombreUsuario"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user-circle"></i> &nbsp;
-                    </a></p>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <p id="nombreUsuario"><i class="fa fa-user-circle"></i> &nbsp;</p>
+                    </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Mí Cuenta</a>
                     <a class="dropdown-item" href="#">Cerrar Sesión</a>
                 </div>
             </li>
         </ul>
+        
+        <input type="hidden" id="emailSecreto">
+        <input type="hidden" id="passSecreto">
+        <script type="text/javascript">
+            var url_string = window.location.href; //
+            var url = new URL(url_string);
+            var c = url.searchParams.get("email");
+            var d = url.searchParams.get("pass");
+            document.getElementById("emailSecreto").value = c;
+            document.getElementById("passSecreto").value = d;
+        </script>
 
         <!--    TÍTULO  -->
         <h3 class="title my-5">Mí cuenta</h3> 

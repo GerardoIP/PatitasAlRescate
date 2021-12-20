@@ -13,7 +13,29 @@ var db = firebase.firestore();
 //HASTA AQUI SE DEJA EXACTAMENTE LO MISMO
 
 
+function iniciaSesion() {
+    var correo = document.getElementById("email").value;
+    var pass = document.getElementById("pass").value;
+    
+    db.collection("usuariosComunidad").where("correoElectronico", "==", correo).where("Password", "==", pass).onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            //Con doc.data regresa toda la información del registro, si se quiere algo en especial, se puede poner:
+            //doc.data().NombreDelCampo
+            console.log(`${doc.id} => ${doc.data()}`);
+            Swal.fire(
+                    '¡Bienvenido ' + `${doc.data().Nombre}` + "!",
+                    '',
+                    'success',
+                    location.href = 'miCuentaUsuario.html'
+                    );
+        });
+    });
+}
+
+
 //ESTA PARTE ES PARA LEER DATOS, PARA QUE SE PRESENTEN EN PANTALLA
+var correo2 = document.getElementById("emailSecreto").value;
+var pass2 = document.getElementById("passSecreto").value;
 //ABAJO CREO VARIABLES QUE SE REFIEREN A LOS ELEMENTOS DEL HTML EN BASE AL ID
 var nombre = document.getElementById('nombreUsuario');
 var nombreCompleto = document.getElementById('nombreCompleto');
@@ -24,7 +46,7 @@ var div = document.getElementById('botones');
 //DB.COLLECTION SE REFIERE A LA COLEXION DE FIREBASE A LA QUE ESTAS HACIENDO REFERENCIA
 //.WHERE ES PARA REALIZAR CONSULTA, IGUAL QUE EN MYSQL, PARA BUSCAR ALGO EN ESPECÍFICO
 //.ONSNAPSHOT SIRVE PARA QUE TODOS LOS CAMBIOS QUE OCURRAN SE HAGAN Y MUESTREN EN TIEMPO REAL, ESO NO SE CAMBIA
-db.collection("usuariosComunidad").where("correoElectronico", "==", "g.picazo03@hotmail.com").where("Password", "==", "Gerardo").onSnapshot((querySnapshot) => {
+db.collection("usuariosComunidad").where("correoElectronico", "==", correo2).where("Password", "==", pass2).onSnapshot((querySnapshot) => {
     querySnapshot.forEach((doc) => {
         //Con doc.data regresa toda la información del registro, si se quiere algo en especial, se puede poner:
         //doc.data().NombreDelCampo
