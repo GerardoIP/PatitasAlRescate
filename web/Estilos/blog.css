@@ -1,16 +1,15 @@
 #principal{
-    width: 80%;
+    width: 90%;
     height: auto; overflow: hidden;
-    border: 1px solid;
-    margin: 10px auto;
+    margin: 1px auto;
 }
 
-#publicaciones{
+/*#publicaciones{
     width: 70%;
     height: auto; overflow: hidden;
     border: 1px solid red;
     margin-top: 10px;
-}
+}*/
 
 .post{
     width: 96%;
@@ -22,7 +21,7 @@
     border-left-color: #0489B1;
     border-radius: 10px;
     box-shadow: 0px 0px 15px #ccc;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .enlace-post{
@@ -94,11 +93,11 @@
     text-decoration: underline;
 }
 
-.comentarios{
+/*.comentarios{
     margin:20px;
-}
+}/*
 
-.form-comentarios textarea{
+/*.form-comentarios textarea{
     width: 100%;
     height: 84px;
     max-width: 100%;
@@ -110,25 +109,25 @@
     border:4px solid #4b65d1;
     margin-bottom: 20px;
     border-radius: 7px;
-}
+}/*
 
-.form-comentarios .botoncomentario{
+/*.form-comentarios .botoncomentario{
     background: #4b65d1;
     font-family:'Lucida Sans';
     border-radius: 5px;
     color:#fff;  
     font-size: 20px;
     
-}
+}*/
 
-.form-comentarios .botoncomentario:hover{
+/*.form-comentarios .botoncomentario:hover{
     box-shadow: 0px 0px 9px rgba(0,0,0,0.35);  
-}
+}*/
 
-.titulo{
+/*.titulo{
     text-align:justify;
     text-justify:inter-word;
     font-weight: bold;
     margin-top: 5px;
     margin-bottom: 10px;
-}
+}/*
