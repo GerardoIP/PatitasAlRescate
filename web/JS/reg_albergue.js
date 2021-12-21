@@ -13,6 +13,7 @@ var db = firebase.firestore();
 //AGREGAR DATOS
 function guardar() {
     var nombreAlbergue = document.getElementById('nombreAlbergue').value;
+    var habitantes = document.getElementById('habitantes').value;
     var calle = document.getElementById('calle').value;
     var colonia = document.getElementById('colonia').value;
     var alcaldia = document.getElementById('alcaldia').value;
@@ -35,11 +36,13 @@ function guardar() {
         nombreAlbergue: nombreAlbergue,
         numExt: numext,
         numInt: numint,
-        numTelefono: numtel
+        numTelefono: numtel,
+        Habitantes: habitantes
     })
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);
                 document.getElementById('nombreAlbergue').value="";
+                document.getElementById('habitantes').value="";
                 document.getElementById('calle').value="";
                 document.getElementById('colonia').value="";
                 document.getElementById('alcaldia').value="";

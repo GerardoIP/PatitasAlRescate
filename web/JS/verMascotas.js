@@ -10,10 +10,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-
+var albergue = document.getElementById("nombreSecreto").value;
 //LEER DATOS
 var card = document.getElementById('cardBody');
-db.collection("usuariosAlbergue").onSnapshot((querySnapshot) => {
+db.collection("Mascotas").where("Albergue", "==", albergue).onSnapshot((querySnapshot) => {
     card.innerHTML = '';
     querySnapshot.forEach((doc) => {
         //Con doc.data regresa toda la información del registro, si se quiere algo en especial, se puede poner:
@@ -21,19 +21,16 @@ db.collection("usuariosAlbergue").onSnapshot((querySnapshot) => {
         console.log(`${doc.id} => ${doc.data()}`);
         card.innerHTML += `
         <div class="card" style="margin-left: 4% !important; margin-right: 4% !important; margin-bottom: 10% !important;">
-        <img class="card-img-top" src="Imagenes/huellas.jpg" alt="Card image cap">
+        <img class="card-img-top" src="Imagenes/PerritoBonito.jpg" alt="Card image cap">
                     <div class="card-body">
-        <form action="verMascotas.html" method="GET">
-        <input type="hidden" id="nombreDelAlbergue" name="nombreDelAlbergue" value="${doc.data().nombreAlbergue}">
-        <h4>Albergue ${doc.data().nombreAlbergue}</h4><br>
-        <h6>Habitantes: ${doc.data().Habitantes}</h6>
-        <h6>Direccion: Calle ${doc.data().Calle} num. Ext. ${doc.data().numExt}, num. Int. ${doc.data().numInt} Colonia ${doc.data().Colonia} </h6>
-        <h6>Celular: ${doc.data().numTelefono}</h6>
-        <button type="submit" class="btn btn-primary">Visitar</button>
-        </form>
+        <h4>¡Hola me llamo: ${doc.data().Nombre}!</h4><br>
+        <h6>Edad: ${doc.data().Edad} meses</h6>
+        <h6>Raza: ${doc.data().Raza}</h6>
+        <h6>Observaciones: ${doc.data().Observaciones}</h6>
+        <h6>Albergue: ${doc.data().Albergue}</h6><br>
+                    </div>
         </div>
         `;
     });
 });
-
 
