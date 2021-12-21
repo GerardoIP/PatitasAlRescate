@@ -62,51 +62,68 @@ db.collection("usuariosAlbergue").where("correoElectronico", "==", correo2).wher
         Pass.innerHTML = `Contraseña: ` + `${doc.data().Password}`;
         mascotas.innerHTML = `Número de mascotas: ` + `${doc.data().Habitantes}`;
         //BOTÓN PARA MODIFICAR INFORMACIÓN Y ABAJITO PARA ELIMINAR INFORMACIÓN
-        div.innerHTML = `<button type="button" class="btn btn-primary" onclick="editar('${doc.id}','${doc.data().Nombre}',
-        '${doc.data().Papellido}','${doc.data().Sapellido}','${doc.data().numTelefono}','${doc.data().correoElectronico}','${doc.data().Password}')">Modificar Información </button><br><br>
+        div.innerHTML = `<button type="button" class="btn btn-primary" onclick="editar('${doc.id}','${doc.data().nombreAlbergue}',
+        '${doc.data().Calle}','${doc.data().numExt}','${doc.data().numInt}','${doc.data().Colonia}','${doc.data().Alcaldia}','${doc.data().cp}','${doc.data().numTelefono}','${doc.data().correoElectronico}'
+        ,'${doc.data().Password}','${doc.data().Habitantes}')">Modificar Información </button><br><br>
                     
-            <button type="button" class="btn btn-primary" onclick="eliminar('${doc.id}','${doc.data().Nombre}',
-        '${doc.data().Papellido}','${doc.data().Sapellido}')">Eliminar Cuenta</button>`;
+            <button type="button" class="btn btn-primary" onclick="eliminar('${doc.id}','${doc.data().nombreAlbergue}',
+            '${doc.data().Calle}','${doc.data().numExt}','${doc.data().numInt}','${doc.data().Colonia}','${doc.data().numTelefono}','${doc.data().correoElectronico}'
+            ,'${doc.data().Password}','${doc.data().Habitantes}')">Eliminar Cuenta</button>`;
     });
 });
 
 
 //ESTA FUNCIÓN SIRVE PARA ACTUALIZAR DATOS, LE PASA LO QUE ESTÁ DENTRO DEL PARÉNTESIS QUE LO RECIBE DEL BOTON DE ARRIBITA
-function editar(id, nombre, papellido, sapellido, telefono, correo, pass) {
+function editar(id,nombreAlbergue,calle,numext,numint,colonia,alcaldia,cp,telefono,correo,pass,habitantes) {
     //VA A PONER EL VALOR DE CADA COLUMNA EN LOS CAMPOS
     //MUESTRA EL MODAL QUE SE CREA EN EL HTML
-    $('#modalUsuarios').modal('show');
+    $('#modalAlbergues').modal('show');
     //A LOS ELEMENTOS DEL HTML LES PONGO EL VALOR QUE RECIBEN DE LA PARTE DE LEER DATOS, LA DE ARRIBA
-    document.getElementById('nombreCompletoModal').value = nombre;
-    document.getElementById('paModal').value = papellido;
-    document.getElementById('saModal').value = sapellido;
-    document.getElementById('telModal').value = telefono;
-    document.getElementById('correoModal').value = correo;
-    document.getElementById('passModal').value = pass;
+    document.getElementById('nombreAlbergue').value = nombreAlbergue;
+    document.getElementById('callemodal').value = calle;
+    document.getElementById('coloniamodal').value = colonia;
+    document.getElementById('cpmodal').value = cp;
+    document.getElementById('alcaldiamodal').value = alcaldia;
+    document.getElementById('numextmodal').value = numext;
+    document.getElementById('numintodal').value = numint;
+    document.getElementById('correomodal').value = correo;
+    document.getElementById('telmodal').value = telefono;
+    document.getElementById('passmodal').value = pass;
+    document.getElementById('habitantesmodal').value = habitantes;
     //DENTRO DEL MODAL HAY UN BOTON AL QUE ESTOY HACIENDO REFERENCIA
     var boton = document.getElementById('boton');
     //AL DAR CLICK EN ESE BOTON, SE EJECUTA LA SIGUIENTE FUNCION, POR ESO DICE BOTON.ONCLICK
     boton.onclick = function () {
         //VAR WASHINGTON LA DEJÉ ASÍ PORQUE ASÍ VIENE LA DOCUMENTACIÓN DE FIREBASE Y ME DIÓ FLOJERA CMABIAR LA VARIABLE JAJA
         //ESA VARIABLE HACE REFERENCIA A LA COLECCIÓN E IDENTIFICADOR
-        var washingtonRef = db.collection("usuariosComunidad").doc(id);
+        var washingtonRef = db.collection("usuariosAlbergue").doc(id);
         //CRE NUEVAS VARIABLES Y OBTENGO EL NUEVO VALOR DE LOS CAMPOS
-        var A = document.getElementById('nombreCompletoModal').value;
-        var B = document.getElementById('paModal').value;
-        var C = document.getElementById('saModal').value;
-        var D = document.getElementById('telModal').value;
-        var E = document.getElementById('correoModal').value;
-        var F = document.getElementById('passModal').value;
+        var A = document.getElementById('nombrealberguemodal').value;
+        var B = document.getElementById('callemodal').value;
+        var C = document.getElementById('coloniamodal').value;
+        var D = document.getElementById('cpmodal').value;
+        var E = document.getElementById('alcaldiamodal').value;
+        var F = document.getElementById('numextmodal').value;
+        var G = document.getElementById('numintodal').value;
+        var H = document.getElementById('telmodal').value;
+        var I = document.getElementById('correomodal').value;
+        var J = document.getElementById('passmodal').value;
+        var K = document.getElementById('habitantesmodal').value;
         //EN ESTA PARTE SE HACEN LOS CAMBIOS A LOS CAMPOS CON .UPDATE
         return washingtonRef.update({
             //LO PRIMERO ES EL NOMBRE QUE SE TIENE EN FIREBASE, LO SEGUNDO ES LA VARIABLE DE ARRIBA QUE ESTÁ OBTENIENDO LO QUE SE ESCRIBIÓ EN EL CAMPO
             //NOMBRE -> ESTÁ EN LA COLECCIÓN DE FIREBASE, A -> ES LA VARIABLE DE ARRIBA, POR EJEMPLO
-            Nombre: A,
-            Papellido: B,
-            Sapellido: C,
-            numTelefono: D,
-            correoElectronico: E,
-            Password: F
+            nombreAlbergue: A,
+            Calle: B,
+            Colonia: C,
+            CP: D,
+            Alcaldia: E,
+            numExt: F,
+            numInt: G,
+            numTelefono: H,
+            correoElectronico: I,
+            Password: J,
+            Habitantes: K
         })
         //YA QUE SE HIZO TODO ESO, .THEN ES PARA LO QUE PARA DESPUÉS 
                 .then(() => {
@@ -119,7 +136,7 @@ function editar(id, nombre, papellido, sapellido, telefono, correo, pass) {
                             'success'
                             );
                     //OCULTA EL MODAL
-                    $('#modalUsuarios').modal('hide');
+                    $('#modalAlbergues').modal('hide');
                 })
                 //SI HUBO ALGÚN ERROR, ESCRIBE ESO EN CONSOLA
                 .catch((error) => {
@@ -131,12 +148,12 @@ function editar(id, nombre, papellido, sapellido, telefono, correo, pass) {
 
 
 //ESTA PARTE ES PARA ELIMINAR DATOS, LE PASA LO QUE ESTÁ DENTRO DEL PARÉNTESIS QUE LO RECIBE DEL BOTON DE ARRIBITA
-function eliminar(id, Nombre, PApellido, SApellido) {
+function eliminar(id,nombreAlbergue) {
     //HACE REFERENCIA A LA COLECCIÓN Y ID
-    db.collection("usuariosComunidad").doc(id);
+    db.collection("usuariosAlbergue").doc(id);
     //MENSAJITO DE CONFIRMACIÓN
     Swal.fire({
-        title: '¿Está seguro de eliminar su cuenta ' + Nombre + ' ' + PApellido + " " + SApellido + '?',
+        title: '¿Está seguro de eliminar su cuenta ' + nombreAlbergue + '?',
         text: "¡Está operación no se puede revertir!",
         icon: 'warning',
         showCancelButton: true,
@@ -149,7 +166,7 @@ function eliminar(id, Nombre, PApellido, SApellido) {
         if (result.value) {
             Swal.fire('¡Eliminado!', '', 'success');
             //HACE REFERENCIA A LA COLECCIÓN QUE ESTAMOS USANDO, CON .DELETE() LO ELIMINA
-            db.collection("usuariosComunidad").doc(id).delete().then(() => {
+            db.collection("usuariosAlbergue").doc(id).delete().then(() => {
                 //PINTA EN CONSOLA QUE SE ELIMINÓ, SOLO PARA COMPROBAR
                 console.log("Document successfully deleted!");
                 //EN ESTE CASO, LO REDIRECCIONO AL INDEX

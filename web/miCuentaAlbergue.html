@@ -110,6 +110,54 @@
         </div>
 
 
+        <!--Modal Información Cuenta-->
+        <div id="modalAlbergues" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-light" style="background-color: #094B81">
+                        <h5 class="modal-title" id="exampleModalLabel">Modificar Información</h5>
+                        <button type="button" class="btn-close" onclick="cerrarModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <input id="id" type="hidden"> <!-- ID que vamos a recibir de firebase -->
+                                <p>Nombre</p>
+                                <input type="text" id="nombrealberguemodal"  class="form-control" style="width: 80%" required><br>
+                                <p>Calle</p>
+                                <input type="text" id="callemodal" class="form-control" style="width: 80%" required><br>
+                                <p>Colonia</p>
+                                <input type="text" id="coloniamodal" class="form-control" style="width: 80%" required><br>
+                                <p>CP</p>
+                                <input type="text" id="cpmodal" class="form-control" style="width: 80%" required><br>
+                                <p>Alcaldia</p>
+                                <input type="text" id="alcaldiamodal" class="form-control" style="width: 80%" required><br>
+                                <p>Numero exterior</p>
+                                <input type="text" id="numextmodal" class="form-control" style="width: 80%" required><br>
+                            </div>
+                            <div class="col">
+                                <p>Numero interior</p>
+                                <input type="text" id="numintmodal" class="form-control" style="width: 80%"><br>
+                                <p>Correo</p>
+                                <input type="text" id="correomodal" class="form-control" style="width: 80%"><br>
+                                <p>Telefono</p>
+                                <input type="text" id="telmodal" class="form-control" style="width: 80%"><br>
+                                <p>Contraseña</p>
+                                <input type="text" id="passmodal" class="form-control" style="width: 80%" required><br>
+                                <p>Numero de habitantes</p>
+                                <input type="text" id="habitantesmodal" class="form-control" style="width: 80%" required><br>
+                                <button type="button" id="boton" class="btn btn-primary">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
         <!-- FOOTER -->
         <div class="b-example-divider" style="margin-top: 10%;"></div>
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -141,7 +189,7 @@
 
 
         <!--ESTE SCRIPT LO CAMBIAS POR EL QUE GENERES-->
-        <script src="JS/perri.js"></script>
+        <script src="JS/iniciaAlbergue.js"></script>
 
     </body>
 </html>
