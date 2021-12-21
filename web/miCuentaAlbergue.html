@@ -18,6 +18,15 @@
         <!-- IMPORTAR FIGURAS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        
+        <style>
+            .card-group {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr)!important;
+                grid-gap: 10px !important;
+            }
+        </style>
+        
     </head>
     <body>
 
@@ -40,15 +49,26 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user-circle"></i> &nbsp;Bienvenido
-                </a>
+                        <p id="nombreUsuario"><i class="fa fa-user-circle"></i> &nbsp;</p>
+                    </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Mí Cuenta</a>
                     <a class="dropdown-item" href="#">Cerrar Sesión</a>
                 </div>
             </li>
         </ul>
-
+        
+        <input type="hidden" id="emailSecreto">
+        <input type="hidden" id="passSecreto">
+        <script type="text/javascript">
+            var url_string = window.location.href; //
+            var url = new URL(url_string);
+            var c = url.searchParams.get("email");
+            var d = url.searchParams.get("pass");
+            document.getElementById("emailSecreto").value = c;
+            document.getElementById("passSecreto").value = d;
+        </script>
+        
         <!--    TÍTULO  -->
         <h3 class="title my-5">Mí cuenta</h3> 
 
@@ -56,16 +76,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <p>Nombre del Albergue:</p>
-                    <p>Dirección:</p>
-                    <p>Teléfono:</p>
-                    <p>Correo Electrónico:</p>
-                    <p>Contraseña:</p>
-                    <p>Número de Mascotas:</p>
+                    <p id="A"></p>
+                    <p id="B"></p>
+                    <p id="C"></p>
+                    <p id="D"></p>
+                    <p id="E"></p>
+                    <p id="F"></p>
                 </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-primary">Modificar Información </button><br><br>
-                    <button type="button" class="btn btn-primary">Eliminar Cuenta</button>
+                <div class="col-4" id="botones">
                 </div>
             </div>
         </div>
@@ -73,37 +91,19 @@
 
         <!--    TÍTULO  -->
         <h3 class="title my-5">Nuestras Mascotas</h3> 
-
+        
         <div class="container">
-            <div class="card-group">
-                <div class="card">
-                    <img class="card-img-top" src="Imagenes/Perrito1.png" alt="Card image cap">
+            <button type="button" class="btn btn-primary my-5" onclick="verModal()" style="font-size: 100% !important;">
+            <i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Agregar Mascota</button>
+            <div class="card-group" id="cardBody">
+                <div class="card" >
+                    <!--<img class="card-img-top" src="Imagenes/Perrito1.png" alt="Card image cap">-->
                     <div class="card-body">
-                        <h5 class="card-title">¡Hola Me llamo *Panquesito*!</h5>
-                        <p class="card-text">Edad: </p>
-                        <p class="card-text">Raza: </p>
-                        <p class="card-text">Enfermedades: </p>
-                        <p class="card-text">Observaciones: </p>
-                    </div>
-                </div>
-                <div class="card" style="margin-left: 4%; margin-right: 4%;">
-                    <img class="card-img-top" src="Imagenes/Perrito2.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">¡Hola Me llamo *Panquesito*!</h5>
-                        <p class="card-text">Edad: </p>
-                        <p class="card-text">Raza: </p>
-                        <p class="card-text">Enfermedades: </p>
-                        <p class="card-text">Observaciones: </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img-top" src="Imagenes/Perrito1.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">¡Hola Me llamo *Panquesito*!</h5>
-                        <p class="card-text">Edad: </p>
-                        <p class="card-text">Raza: </p>
-                        <p class="card-text">Enfermedades: </p>
-                        <p class="card-text">Observaciones: </p>
+                        <h5 class="card-title" id="nombreP"></h5>
+                        <p class="card-text" id="edadP"></p>
+                        <p class="card-text" id="razaP"></p>
+                        <p class="card-text" id="obsP"></p>
+                        <p class="card-text" id="albP"></p>
                     </div>
                 </div>
             </div>
@@ -126,6 +126,22 @@
                 <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-instagram fa-3x"></i></a></li>
             </ul>
         </footer>
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js"></script> 
+
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+        <!--ESTE SCRIPT LO CAMBIAS POR EL QUE GENERES-->
+        <script src="JS/perri.js"></script>
 
     </body>
 </html>
