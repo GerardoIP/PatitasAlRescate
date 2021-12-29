@@ -31,12 +31,17 @@ function guardar() {
     })
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);
-                document.getElementById('nombre').value="";
-                document.getElementById('papellido').value="";
-                document.getElementById('sapellido').value="";
-                document.getElementById('numtel').value="";
-                document.getElementById('email').value="";
-                document.getElementById('pass').value="";
+                Swal.fire(
+                        '¡Registro Exitoso!',
+                        '',
+                        'success'
+                        );
+                document.getElementById('nombre').value = "";
+                document.getElementById('papellido').value = "";
+                document.getElementById('sapellido').value = "";
+                document.getElementById('numtel').value = "";
+                document.getElementById('email').value = "";
+                document.getElementById('pass').value = "";
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);

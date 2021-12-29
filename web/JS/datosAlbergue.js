@@ -43,6 +43,7 @@ var tel = document.getElementById('C');
 var Email = document.getElementById('D');
 var Pass = document.getElementById('E');
 var mascotas = document.getElementById('F');
+var nombreSecretoDelAlbergue = document.getElementById('nombreSecretoDelAlbergue');
 var div = document.getElementById('botones');
 //DB.COLLECTION SE REFIERE A LA COLEXION DE FIREBASE A LA QUE ESTAS HACIENDO REFERENCIA
 //.WHERE ES PARA REALIZAR CONSULTA, IGUAL QUE EN MYSQL, PARA BUSCAR ALGO EN ESPECÍFICO
@@ -58,17 +59,19 @@ db.collection("usuariosAlbergue").where("correoElectronico", "==", correo2).wher
         //CON `${DOC.DATA().NOMBRE_DEL_CAMPO_DE_LA_BASE}` CONSULTAS LO QUE QUIERAS, ABAJO POR EJEMPLO, ESTOY PIDIENDO ÚNICAMENTE EL NOMBRE
         nombre.innerHTML = `¡Hola ` + `${doc.data().nombreAlbergue}` + `!`;
         nombreCompleto.innerHTML = `Nombre del Albergue: ` + `${doc.data().nombreAlbergue}`;
-        dir.innerHTML = `Direccion: ` + `Calle ${doc.data().Calle} num. Ext. ${doc.data().numExt}, num. Int. ${doc.data().numInt} Colonia ${doc.data().Colonia}`;
+        dir.innerHTML = `Direccion: ` + `Calle ${doc.data().Calle} num. Ext. ${doc.data().numExt}, num. Int. ${doc.data().numInt} Colonia ${doc.data().Colonia} C.P. ${doc.data().CP}`;
         tel.innerHTML = `Telefono: ` + `${doc.data().numTelefono}`;
         Email.innerHTML = `Correo Electrónico: ` + `${doc.data().correoElectronico}`;
         Pass.innerHTML = `Contraseña: ` + `${doc.data().Password}`;
         mascotas.innerHTML = `Número de mascotas: ` + `${doc.data().Habitantes}`;
         //BOTÓN PARA MODIFICAR INFORMACIÓN Y ABAJITO PARA ELIMINAR INFORMACIÓN
         div.innerHTML = `<button type="button" class="btn btn-primary" onclick="editar1('${doc.id}','${doc.data().nombreAlbergue}',
-        '${doc.data().Calle}','${doc.data().numExt}','${doc.data().numInt}','${doc.data().Colonia}','${doc.data().Alcaldia}','${doc.data().cp}','${doc.data().numTelefono}','${doc.data().correoElectronico}'
+        '${doc.data().Calle}','${doc.data().numExt}','${doc.data().numInt}','${doc.data().Colonia}','${doc.data().Alcaldia}','${doc.data().CP}','${doc.data().numTelefono}','${doc.data().correoElectronico}'
         ,'${doc.data().Password}','${doc.data().Habitantes}')">Modificar Información </button><br><br>
                     
-            <button type="button" class="btn btn-primary" onclick="eliminar1('${doc.id}','${doc.data().nombreAlbergue}')">Eliminar Cuenta</button>`;
+            <button type="button" class="btn btn-primary" onclick="eliminar1('${doc.id}','${doc.data().nombreAlbergue}')">Eliminar Cuenta</button>
+        
+`;
     });
 });
 
@@ -79,19 +82,19 @@ function editar1(id,nombreAlbergue,calle,numext,numint,colonia,alcaldia,cp,telef
     //MUESTRA EL MODAL QUE SE CREA EN EL HTML
     $('#modalAlbergues').modal('show');
     //A LOS ELEMENTOS DEL HTML LES PONGO EL VALOR QUE RECIBEN DE LA PARTE DE LEER DATOS, LA DE ARRIBA
-    document.getElementById('nombreAlbergue').value = nombreAlbergue;
+    document.getElementById('nombrealberguemodal').value = nombreAlbergue;
     document.getElementById('callemodal').value = calle;
     document.getElementById('coloniamodal').value = colonia;
     document.getElementById('cpmodal').value = cp;
     document.getElementById('alcaldiamodal').value = alcaldia;
     document.getElementById('numextmodal').value = numext;
-    document.getElementById('numintodal').value = numint;
+    document.getElementById('numintmodal').value = numint;
     document.getElementById('correomodal').value = correo;
     document.getElementById('telmodal').value = telefono;
     document.getElementById('passmodal').value = pass;
     document.getElementById('habitantesmodal').value = habitantes;
     //DENTRO DEL MODAL HAY UN BOTON AL QUE ESTOY HACIENDO REFERENCIA
-    var boton = document.getElementById('boton');
+    var boton = document.getElementById('botonActualizar');
     //AL DAR CLICK EN ESE BOTON, SE EJECUTA LA SIGUIENTE FUNCION, POR ESO DICE BOTON.ONCLICK
     boton.onclick = function () {
         //VAR WASHINGTON LA DEJÉ ASÍ PORQUE ASÍ VIENE LA DOCUMENTACIÓN DE FIREBASE Y ME DIÓ FLOJERA CMABIAR LA VARIABLE JAJA
@@ -104,9 +107,9 @@ function editar1(id,nombreAlbergue,calle,numext,numint,colonia,alcaldia,cp,telef
         var D = document.getElementById('cpmodal').value;
         var E = document.getElementById('alcaldiamodal').value;
         var F = document.getElementById('numextmodal').value;
-        var G = document.getElementById('numintodal').value;
-        var H = document.getElementById('telmodal').value;
-        var I = document.getElementById('correomodal').value;
+        var G = document.getElementById('numintmodal').value;
+        var H = document.getElementById('correomodal').value;
+        var I = document.getElementById('telmodal').value;
         var J = document.getElementById('passmodal').value;
         var K = document.getElementById('habitantesmodal').value;
         //EN ESTA PARTE SE HACEN LOS CAMBIOS A LOS CAMPOS CON .UPDATE
@@ -120,8 +123,8 @@ function editar1(id,nombreAlbergue,calle,numext,numint,colonia,alcaldia,cp,telef
             Alcaldia: E,
             numExt: F,
             numInt: G,
-            numTelefono: H,
-            correoElectronico: I,
+            correoElectronico: H,
+            numTelefono: I,
             Password: J,
             Habitantes: K
         })
@@ -229,7 +232,18 @@ function ValidarDatos() {
                 '',
                 'error'
                 );
+    } else if (document.getElementById('correoModal').value === "") {
+        Swal.fire(
+                'Ingresa el correo electrónico del albergue en donde se encuentra la mascota',
+                '',
+                'error'
+                );
     } else {
+        Swal.fire(
+                '¡Registro Exitoso!',
+                '',
+                'success'
+                );
         guardar();
     }
 }
@@ -241,6 +255,7 @@ function guardar() {
     var C = document.getElementById('razaModal').value;
     var D = document.getElementById('obsModal').value;
     var E = document.getElementById('albModal').value;
+    var F = document.getElementById('correoModal').value;
     //El .add agrega un ID automático
     //Dentro de collection, ponemos la colección a la que vamos a agregar el registro
     db.collection("Mascotas").add({
@@ -249,7 +264,8 @@ function guardar() {
         Edad: B,
         Raza: C,
         Observaciones: D,
-        Albergue: E
+        Albergue: E,
+        correoElectronico: F
     })
             .then((docRef) => {
                 Swal.fire(
@@ -294,10 +310,10 @@ function guardar() {
 //        `;
 //    });
 //});
-
+//var albergue = document.getElementById("nombreSecreto").value;
 //LEER DATOS - AQUI SE MODIFICA CON LA CONDICION
 var card = document.getElementById('cardBody');
-db.collection("Mascotas").onSnapshot((querySnapshot) => {
+db.collection("Mascotas").where("correoElectronico", "==", correo2).onSnapshot((querySnapshot) => {
     card.innerHTML = '';
     querySnapshot.forEach((doc) => {
         //Con doc.data regresa toda la información del registro, si se quiere algo en especial, se puede poner:
@@ -406,11 +422,3 @@ function editar(id, nombre, edad, raza, observaciones, albergue) {
                 });
     };
 }
-
-
-
-
-
-
-
-

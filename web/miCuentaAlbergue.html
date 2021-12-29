@@ -33,28 +33,29 @@
         <!-- NAV BAR -->
         <ul class="nav justify-content-center" style="padding-bottom: 0% !important">
             <div style="margin-left: -2%;">
-                <img src="Imagenes/Logo.png" alt="Logo Patitas al Rescate"/>
+                <a class="nav-link" href="inicioSesionAlbergue.html">
+                    <img src="Imagenes/Logo.png" alt="Logo Patitas al Rescate"/>
+                </a>
             </div>
             <li class="nav-item" style="margin-left: 9%">
-                <a class="nav-link" href="#">¿Quiénes somos?</a>
+                <a class="nav-link" href="qsSesionAlbergue.html">¿Quiénes somos?</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="blogSesionAlbergue.html">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="albergues.html">Albergues</a>
+                <a class="nav-link" href="alberguesSesionAlbergue.html">Albergues</a>
             </li>
             <li class="nav-item" style="margin-right: 10%">
-                <a class="nav-link" href="#">COVID-19</a>
+                <a class="nav-link" href="Covid19SesionAlbergue.html">COVID-19</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <p id="nombreUsuario"><i class="fa fa-user-circle"></i> &nbsp;</p>
-                    </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Mí Cuenta</a>
-                    <a class="dropdown-item" href="#">Cerrar Sesión</a>
-                </div>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    <p id="nombreUsuario"><i class="fa fa-user-circle"></i> &nbsp;</p>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                </ul>
             </li>
         </ul>
         
@@ -108,8 +109,50 @@
                 </div>
             </div>
         </div>
+        
+        
+        
+        
+        <!--Modal Información Mascotas-->
+        <div id="Mascotas" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-light" style="background-color: #094B81">
+                        <h5 class="modal-title" id="exampleModalLabel">Registrar Mascota</h5>
+                        <button type="button" class="btn-close" onclick="cerrarModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col">
+                                <input id="id" type="hidden"> <!-- ID que vamos a recibir de firebase -->
+                                <p>Nombre</p>
+                                <input type="text" id="nombreModal"  class="form-control" style="width: 80%" required><br>
+                                <p>Edad</p>
+                                <input type="text" id="edadModal" class="form-control" style="width: 80%" required><br>
+                                <p>Raza</p>
+                                <input type="text" id="razaModal" class="form-control" style="width: 80%" required><br>
+                            </div>
+                            <div class="col">
+                                <p>Observaciones</p>
+                                <input type="text" id="obsModal" class="form-control" style="width: 80%" required><br>
+                                <p>Albergue</p>
+                                <input type="text" id="albModal" class="form-control" style="width: 80%" required><br>
+                                <p>Correo Electronico</p>
+                                <input type="text" id="correoModal" class="form-control" style="width: 80%" required><br>
+                                <button type="submit" class="btn btn-info my-3" style="color: white" id="boton" onclick="ValidarDatos()">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+        
+        
+        
+        
+        
         <!--Modal Información Cuenta-->
         <div id="modalAlbergues" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
@@ -146,7 +189,7 @@
                                 <input type="text" id="passmodal" class="form-control" style="width: 80%" required><br>
                                 <p>Numero de habitantes</p>
                                 <input type="text" id="habitantesmodal" class="form-control" style="width: 80%" required><br>
-                                <button type="button" id="boton" class="btn btn-primary">Actualizar</button>
+                                <button type="button" id="botonActualizar" class="btn btn-primary">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -175,6 +218,11 @@
             </ul>
         </footer>
         
+        <!--    ETIQUETAS PARA USO DE JS EN BOOTSTRAP   -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -189,7 +237,7 @@
 
 
         <!--ESTE SCRIPT LO CAMBIAS POR EL QUE GENERES-->
-        <script src="JS/iniciaAlbergue.js"></script>
+        <script src="JS/datosAlbergue.js"></script>
 
     </body>
 </html>

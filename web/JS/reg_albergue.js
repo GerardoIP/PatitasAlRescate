@@ -41,17 +41,22 @@ function guardar() {
     })
             .then((docRef) => {
                 console.log("Document written with ID: ", docRef.id);
-                document.getElementById('nombreAlbergue').value="";
-                document.getElementById('habitantes').value="";
-                document.getElementById('calle').value="";
-                document.getElementById('colonia').value="";
-                document.getElementById('alcaldia').value="";
-                document.getElementById('cp').value="";
-                document.getElementById('numext').value="";
-                document.getElementById('numint').value="";
-                document.getElementById('numtel').value="";
-                document.getElementById('email').value="";
-                document.getElementById('pass').value="";
+                Swal.fire(
+                        '¡Registro Exitoso!',
+                        '',
+                        'success'
+                        );
+                document.getElementById('nombreAlbergue').value = "";
+                document.getElementById('habitantes').value = "";
+                document.getElementById('calle').value = "";
+                document.getElementById('colonia').value = "";
+                document.getElementById('alcaldia').value = "";
+                document.getElementById('cp').value = "";
+                document.getElementById('numext').value = "";
+                document.getElementById('numint').value = "";
+                document.getElementById('numtel').value = "";
+                document.getElementById('email').value = "";
+                document.getElementById('pass').value = "";
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);

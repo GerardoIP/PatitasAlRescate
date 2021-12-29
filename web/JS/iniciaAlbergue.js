@@ -185,3 +185,7 @@ function eliminar(id,nombreAlbergue) {
 }
 
 
+
+
+
+
